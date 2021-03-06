@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class mainClass {
@@ -14,6 +16,7 @@ public class mainClass {
     	    	case "monday": 
     	    		System.out.println("Would you like to see whats for lunch or dinner?");
     	    		whatMeal = input.nextLine();
+    	    		System.out.println(whatMeal(1));
     	    		
     	    		break;
     	    	case "tuesday":	
@@ -54,6 +57,33 @@ public class mainClass {
     	    	}
     	    	
     	    	}
-    }
+    	 }
+
+    	 
+    	 public static String whatMeal(int mealPicked) {
+    		 boolean istrue = true; 
+    		 String nameMeal = null;
+    		 File allMealsList = new File("src/mealList");
+    		 Scanner fileinput;
+    		 Scanner userInput = new Scanner(System.in);
+    		 try {
+    			 fileinput = new Scanner(allMealsList);
+    			
+    			
+    			for(int i = 0; i < mealPicked; i++) {
+    				nameMeal = fileinput.nextLine();
+    			}
+    		
+    			 
+    			 
+    		 } catch(FileNotFoundException e) {
+    			 e.printStackTrace();
+    			 System.out.println("the file you are looking for is not here:(");
+    		 }
+    		 
+    		 
+    		 
+    		 return nameMeal;
+    	 }
 
 }
