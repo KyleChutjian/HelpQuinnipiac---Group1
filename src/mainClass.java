@@ -2,58 +2,78 @@ import java.util.Scanner;
 
 public class mainClass {
 	private static String whatMeal;
-	private static boolean isTrue = true;
+	private static boolean isDayValid = false;
+	private static boolean isMealValid = false;
+	private static int fileInt;
     	 public static void main(String[] args) {
-    	    	System.out.println("Welcome to Quinnipiac University's Cafe Q! Please enter what day you would like to see the menu for.");
+
     	    	Scanner input = new Scanner(System.in);
-    	    	String day = input.nextLine();
+
     	    	
     	    	
-    	    	while(isTrue) {
-    	    	switch(day.toLowerCase()) {
-    	    	case "monday": 
-    	    		System.out.println("Would you like to see whats for lunch or dinner?");
-    	    		whatMeal = input.nextLine();
-    	    		
-    	    		break;
-    	    	case "tuesday":	
-    	    		System.out.println("Would you like to see whats for lunch or dinner?");
-    	    		whatMeal = input.nextLine();
-    	    		
-    	    		break;
-    	    	case "wednesday":
-    	    		System.out.println("Would you like to see whats for lunch or dinner?");
-    	    		whatMeal = input.nextLine();
-    	    		
-    	    		break;
-    	    	case "thursday":
-    	    		System.out.println("Would you like to see whats for lunch or dinner?");
-    	    		whatMeal = input.nextLine();
-    	    		
-    	    		break;
-    	    	case "friday":
-    	    		System.out.println("Would you like to see whats for lunch or dinner?");
-    	    		whatMeal = input.nextLine();
-    	    		
-    	    		break;
-    	    	case "saturday":
-    	    		System.out.println("Would you like to see whats for lunch or dinner?");
-    	    		whatMeal = input.nextLine();
-    	    		
-    	    		break;
-    	    	case "sunday":
-    	    		System.out.println("Would you like to see whats for lunch or dinner?");
-    	    		whatMeal = input.nextLine();
-    	    		
-    	    		break;
-    	    	default:
-    	    		isTrue = true;
-    	    		break;
-    	    		
-    	    	
-    	    	}
-    	    	
-    	    	}
+				do {
+					System.out.println("Welcome to Quinnipiac University's Cafe Q! Please enter what day you would like to see the menu for.");
+					String day = input.nextLine().toLowerCase();
+					switch(day) {
+						case "monday","tuesday","wednesday","thursday","friday","saturday","sunday":
+							isDayValid = true;
+							do {
+								System.out.println("Would you like to see whats for lunch or dinner?");
+								whatMeal = input.nextLine().toLowerCase();
+								if (whatMeal.equalsIgnoreCase("lunch") || whatMeal.equalsIgnoreCase("dinner")) {
+									fileInt = getMenu(day.toLowerCase(), whatMeal.toLowerCase());
+									isMealValid = true;
+								} else {
+									System.out.println("You can only enter lunch or dinner, please try again.");
+									isMealValid = false;
+								}
+							} while(!isMealValid);
+
+							break;
+
+						default:
+							System.out.println("You can only enter days of the week, try again.");
+							isDayValid = false;
+							break;
+    	    		}
+
+				} while(!isDayValid);
+
+				System.out.println("User chose " + fileInt);
     }
+
+    public static int getMenu(String day, String meal) {
+    	 	if (day.equalsIgnoreCase("monday") && meal.equalsIgnoreCase("lunch")) {
+    	 		return 1;
+			} else if (day.equalsIgnoreCase("monday") && meal.equalsIgnoreCase("dinner")) {
+				return 2;
+			} else if (day.equalsIgnoreCase("tuesday") && meal.equalsIgnoreCase("lunch")) {
+				return 3;
+			} else if (day.equalsIgnoreCase("tuesday") && meal.equalsIgnoreCase("dinner")) {
+				return 4;
+			} else if (day.equalsIgnoreCase("wednesday") && meal.equalsIgnoreCase("lunch")) {
+				return 5;
+			} else if (day.equalsIgnoreCase("wednesday") && meal.equalsIgnoreCase("dinner")) {
+				return 6;
+			} else if (day.equalsIgnoreCase("thursday") && meal.equalsIgnoreCase("lunch")) {
+				return 7;
+			} else if (day.equalsIgnoreCase("thursday") && meal.equalsIgnoreCase("dinner")) {
+				return 8;
+			} else if (day.equalsIgnoreCase("friday") && meal.equalsIgnoreCase("lunch")) {
+				return 9;
+			} else if (day.equalsIgnoreCase("friday") && meal.equalsIgnoreCase("dinner")) {
+				return 10;
+			} else if (day.equalsIgnoreCase("saturday") && meal.equalsIgnoreCase("lunch")) {
+				return 11;
+			} else if (day.equalsIgnoreCase("saturday") && meal.equalsIgnoreCase("dinner")) {
+				return 12;
+			} else if (day.equalsIgnoreCase("sunday") && meal.equalsIgnoreCase("lunch")) {
+				return 13;
+			} else if (day.equalsIgnoreCase("sunday") && meal.equalsIgnoreCase("dinner")) {
+				return 14;
+			} else {
+    	 		return 15;
+			}
+	}
 
 }
