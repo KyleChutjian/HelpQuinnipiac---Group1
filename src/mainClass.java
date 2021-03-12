@@ -4,8 +4,10 @@ import java.io.FileNotFoundException;
 
 public class mainClass {
 	private static String whatMeal;
+	private static boolean doneLooking = false;
 	private static boolean isDayValid = false;
 	private static boolean isMealValid = false;
+	private static boolean isFinalAnswerValid = false;
 	private static int fileInt;
 
 	public static void main(String[] args) {
@@ -134,9 +136,35 @@ public class mainClass {
 				System.out.println("You can only enter days of the week, try again.");
 				isDayValid = false;
 				break;
-			}
 
-		} while (!isDayValid);
+			} while (!isDayValid);
+			String dayString = whatMeal(fileInt).substring(0,whatMeal(fileInt).indexOf(":") + 1);
+			String meal = whatMeal(fileInt).substring(whatMeal(fileInt).indexOf(":")+1);
+			System.out.println(dayString);
+
+			for (int i = 0; i < meal.length(); i++) {
+				if (meal.contains(",")) {
+					String individualMeal = meal.substring(0,meal.indexOf(","));
+					meal = meal.substring(meal.indexOf(",")+1);
+					System.out.println("- " + individualMeal);
+				}
+			}
+			do {
+				System.out.println("\nWould you like to look at another day?");
+				System.out.println("- Yes\n - No");
+				String anotherDayAnswer = input.nextLine();
+				if (anotherDayAnswer.equalsIgnoreCase("Yes")) {
+					isFinalAnswerValid = true;
+				} else if (anotherDayAnswer.equalsIgnoreCase("No")) {
+					isFinalAnswerValid = true;
+					doneLooking = true;
+				} else {
+					System.out.println("Not a valid response, try again.");
+				}
+			} while(!isFinalAnswerValid);
+		} while (!doneLooking);
+
+
 
 		String dayString = whatMeal(fileInt).substring(0, whatMeal(fileInt).indexOf(":") + 1);
 		String meal = whatMeal(fileInt).substring(whatMeal(fileInt).indexOf(":") + 1);
@@ -149,6 +177,7 @@ public class mainClass {
 				System.out.println("- " + individualMeal);
 			}
 		}
+
 	}
 
 	public static int getMenu(String day, String meal) {
