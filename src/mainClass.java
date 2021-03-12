@@ -32,7 +32,6 @@ public class mainClass {
 					if (whatMeal.equalsIgnoreCase("brunch") || whatMeal.equalsIgnoreCase("dinner")) {
 						fileInt = getMenu(day.toLowerCase(), whatMeal.toLowerCase());
 						isMealValid = true;
-						System.out.println(whatMeal(fileInt));
 					} else {
 						System.out.println("You can only enter brunch or dinner, please try again.");
 						isMealValid = false;
@@ -48,7 +47,6 @@ public class mainClass {
 						if (whatMeal.equalsIgnoreCase("brunch") || whatMeal.equalsIgnoreCase("dinner")) {
 							fileInt = getMenu(day.toLowerCase(), whatMeal.toLowerCase());
 							isMealValid = true;
-							System.out.println(whatMeal(fileInt));
 						} else {
 							System.out.println("You can only enter brunch or dinner, please try again.");
 							isMealValid = false;
@@ -64,7 +62,6 @@ public class mainClass {
 						if (whatMeal.equalsIgnoreCase("brunch") || whatMeal.equalsIgnoreCase("dinner")) {
 							fileInt = getMenu(day.toLowerCase(), whatMeal.toLowerCase());
 							isMealValid = true;
-							System.out.println(whatMeal(fileInt));
 						} else {
 							System.out.println("You can only enter brunch or dinner, please try again.");
 							isMealValid = false;
@@ -80,7 +77,6 @@ public class mainClass {
 						if (whatMeal.equalsIgnoreCase("brunch") || whatMeal.equalsIgnoreCase("dinner")) {
 							fileInt = getMenu(day.toLowerCase(), whatMeal.toLowerCase());
 							isMealValid = true;
-							System.out.println(whatMeal(fileInt));
 						} else {
 							System.out.println("You can only enter brunch or dinner, please try again.");
 							isMealValid = false;
@@ -96,7 +92,6 @@ public class mainClass {
 						if (whatMeal.equalsIgnoreCase("brunch") || whatMeal.equalsIgnoreCase("dinner")) {
 							fileInt = getMenu(day.toLowerCase(), whatMeal.toLowerCase());
 							isMealValid = true;
-							System.out.println(whatMeal(fileInt));
 						} else {
 							System.out.println("You can only enter brunch or dinner, please try again.");
 							isMealValid = false;
@@ -112,7 +107,6 @@ public class mainClass {
 						if (whatMeal.equalsIgnoreCase("brunch") || whatMeal.equalsIgnoreCase("dinner")) {
 							fileInt = getMenu(day.toLowerCase(), whatMeal.toLowerCase());
 							isMealValid = true;
-							System.out.println(whatMeal(fileInt));
 						} else {
 							System.out.println("You can only enter brunch or dinner, please try again.");
 							isMealValid = false;
@@ -128,7 +122,6 @@ public class mainClass {
 						if (whatMeal.equalsIgnoreCase("brunch") || whatMeal.equalsIgnoreCase("dinner")) {
 							fileInt = getMenu(day.toLowerCase(), whatMeal.toLowerCase());
 							isMealValid = true;
-							System.out.println(whatMeal(fileInt));
 						} else {
 							System.out.println("You can only enter brunch or dinner, please try again.");
 							isMealValid = false;
@@ -145,6 +138,17 @@ public class mainClass {
 
 		} while (!isDayValid);
 
+		String dayString = whatMeal(fileInt).substring(0,whatMeal(fileInt).indexOf(":") + 1);
+		String meal = whatMeal(fileInt).substring(whatMeal(fileInt).indexOf(":")+1);
+		System.out.println(dayString);
+
+		for (int i = 0; i < meal.length(); i++) {
+			if (meal.contains(",")) {
+				String individualMeal = meal.substring(0,meal.indexOf(","));
+				meal = meal.substring(meal.indexOf(",")+1);
+				System.out.println("- " + individualMeal);
+			}
+		}
 	}
 
 	public static int getMenu(String day, String meal) {
