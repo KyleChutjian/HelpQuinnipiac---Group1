@@ -15,6 +15,13 @@ public class mainClass {
 		do {
 			System.out.println(
 					"Welcome to Quinnipiac University's Cafe Q! Please enter what day you would like to see the menu for.");
+			System.out.println("- Sunday");
+			System.out.println("- Monday");
+			System.out.println("- Tuesday");
+			System.out.println("- Wednesday");
+			System.out.println("- Thursday");
+			System.out.println("- Friday");
+			System.out.println("- Saturday");
 			String day = input.nextLine().toLowerCase();
 			switch (day) {
 			case "monday":
