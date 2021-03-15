@@ -26,116 +26,33 @@ public class mainClass {
 			System.out.println("- Saturday");
 			String day = input.nextLine().toLowerCase();
 			switch (day) {
-			case "monday":
-				isDayValid = true;
-				do {
-					System.out.println("Would you like to see what's for brunch or dinner?");
-					whatMeal = input.nextLine().toLowerCase();
-					if (whatMeal.equalsIgnoreCase("brunch") || whatMeal.equalsIgnoreCase("dinner")) {
-						fileInt = getMenu(day.toLowerCase(), whatMeal.toLowerCase());
-						isMealValid = true;
-					} else {
-						System.out.println("You can only enter brunch or dinner, please try again.");
-						isMealValid = false;
-					}
-				} while (!isMealValid);
+				case "monday":
+				case "tuesday":
+				case "wednesday":
+				case "thursday":
+				case "friday":
+				case "saturday":
+				case "sunday":
+					isDayValid = true;
 
-				break;
-			case "tuesday":
-				isDayValid = true;
-				do {
-					System.out.println("Would you like to see what's for brunch or dinner?");
-					whatMeal = input.nextLine().toLowerCase();
-					if (whatMeal.equalsIgnoreCase("brunch") || whatMeal.equalsIgnoreCase("dinner")) {
-						fileInt = getMenu(day.toLowerCase(), whatMeal.toLowerCase());
-						isMealValid = true;
-					} else {
-						System.out.println("You can only enter brunch or dinner, please try again.");
-						isMealValid = false;
-					}
-				} while (!isMealValid);
+					do {
+						System.out.println("Would you like to see what's for brunch or dinner?");
+						whatMeal = input.nextLine().toLowerCase();
+						if (whatMeal.equalsIgnoreCase("brunch") || whatMeal.equalsIgnoreCase("dinner")) {
+							fileInt = getMenu(day.toLowerCase(), whatMeal.toLowerCase());
+							isMealValid = true;
+						} else {
+							System.out.println("You can only enter brunch or dinner, please try again.");
+							isMealValid = false;
+						}
+					} while (!isMealValid);
 
-				break;
-			case "wednesday":
-				isDayValid = true;
-				do {
-					System.out.println("Would you like to see what's for brunch or dinner?");
-					whatMeal = input.nextLine().toLowerCase();
-					if (whatMeal.equalsIgnoreCase("brunch") || whatMeal.equalsIgnoreCase("dinner")) {
-						fileInt = getMenu(day.toLowerCase(), whatMeal.toLowerCase());
-						isMealValid = true;
-					} else {
-						System.out.println("You can only enter brunch or dinner, please try again.");
-						isMealValid = false;
-					}
-				} while (!isMealValid);
+					break;
 
-				break;
-			case "thursday":
-				isDayValid = true;
-				do {
-					System.out.println("Would you like to see what's for brunch or dinner?");
-					whatMeal = input.nextLine().toLowerCase();
-					if (whatMeal.equalsIgnoreCase("brunch") || whatMeal.equalsIgnoreCase("dinner")) {
-						fileInt = getMenu(day.toLowerCase(), whatMeal.toLowerCase());
-						isMealValid = true;
-					} else {
-						System.out.println("You can only enter brunch or dinner, please try again.");
-						isMealValid = false;
-					}
-				} while (!isMealValid);
-
-				break;
-			case "friday":
-				isDayValid = true;
-				do {
-					System.out.println("Would you like to see what's for brunch or dinner?");
-					whatMeal = input.nextLine().toLowerCase();
-					if (whatMeal.equalsIgnoreCase("brunch") || whatMeal.equalsIgnoreCase("dinner")) {
-						fileInt = getMenu(day.toLowerCase(), whatMeal.toLowerCase());
-						isMealValid = true;
-					} else {
-						System.out.println("You can only enter brunch or dinner, please try again.");
-						isMealValid = false;
-					}
-				} while (!isMealValid);
-
-				break;
-			case "saturday":
-				isDayValid = true;
-				do {
-					System.out.println("Would you like to see what's for brunch or dinner?");
-					whatMeal = input.nextLine().toLowerCase();
-					if (whatMeal.equalsIgnoreCase("brunch") || whatMeal.equalsIgnoreCase("dinner")) {
-						fileInt = getMenu(day.toLowerCase(), whatMeal.toLowerCase());
-						isMealValid = true;
-					} else {
-						System.out.println("You can only enter brunch or dinner, please try again.");
-						isMealValid = false;
-					}
-				} while (!isMealValid);
-
-				break;
-			case "sunday":
-				isDayValid = true;
-				do {
-					System.out.println("Would you like to see what's for brunch or dinner?");
-					whatMeal = input.nextLine().toLowerCase();
-					if (whatMeal.equalsIgnoreCase("brunch") || whatMeal.equalsIgnoreCase("dinner")) {
-						fileInt = getMenu(day.toLowerCase(), whatMeal.toLowerCase());
-						isMealValid = true;
-					} else {
-						System.out.println("You can only enter brunch or dinner, please try again.");
-						isMealValid = false;
-					}
-				} while (!isMealValid);
-
-				break;
-
-			default:
-				System.out.println("You can only enter days of the week, try again.");
-				isDayValid = false;
-				break;
+				default:
+					System.out.println("You can only enter days of the week, try again.");
+					isDayValid = false;
+					break;
 
 			} while (!isDayValid);
 			String dayString = whatMeal(fileInt).substring(0,whatMeal(fileInt).indexOf(":") + 1);
