@@ -137,15 +137,17 @@ public class mainClass {
 				isDayValid = false;
 				break;
 
-			} while (!isDayValid);
-			String dayString = whatMeal(fileInt).substring(0,whatMeal(fileInt).indexOf(":") + 1);
-			String meal = whatMeal(fileInt).substring(whatMeal(fileInt).indexOf(":")+1);
+			}
+			while (!isDayValid)
+				;
+			String dayString = whatMeal(fileInt).substring(0, whatMeal(fileInt).indexOf(":") + 1);
+			String meal = whatMeal(fileInt).substring(whatMeal(fileInt).indexOf(":") + 1);
 			System.out.println(dayString);
 
 			for (int i = 0; i < meal.length(); i++) {
 				if (meal.contains(",")) {
-					String individualMeal = meal.substring(0,meal.indexOf(","));
-					meal = meal.substring(meal.indexOf(",")+1);
+					String individualMeal = meal.substring(0, meal.indexOf(","));
+					meal = meal.substring(meal.indexOf(",") + 1);
 					System.out.println("- " + individualMeal);
 				}
 			}
@@ -161,10 +163,8 @@ public class mainClass {
 				} else {
 					System.out.println("Not a valid response, try again.");
 				}
-			} while(!isFinalAnswerValid);
+			} while (!isFinalAnswerValid);
 		} while (!doneLooking);
-
-
 
 		String dayString = whatMeal(fileInt).substring(0, whatMeal(fileInt).indexOf(":") + 1);
 		String meal = whatMeal(fileInt).substring(whatMeal(fileInt).indexOf(":") + 1);
